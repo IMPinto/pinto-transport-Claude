@@ -7,7 +7,7 @@ import {
   LayoutDashboard, 
   Users, 
   Car, 
-  Route, 
+  Router, 
   LogOut, 
   Bus 
 } from 'lucide-react'
@@ -31,7 +31,7 @@ const menuItems = [
   {
     name: 'מסלולים',
     href: '/admin/routes',
-    icon: Route,
+    icon: Router,
   },
 ]
 
