@@ -1,11 +1,3 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/login/page": "app/login/page.js",
-  "/page": "app/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/admin/dashboard/page": "app/admin/dashboard/page.js",
-  "/driver/dashboard/page": "app/driver/dashboard/page.js",
-  "/admin/drivers/page": "app/admin/drivers/page.js",
-  "/admin/routes/page": "app/admin/routes/page.js",
-  "/admin/vehicles/page": "app/admin/vehicles/page.js"
+  "/page": "app/page.js"
 }
