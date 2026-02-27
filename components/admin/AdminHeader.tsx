@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import { useSession } from 'next-auth/react'
-import { Bell, Search } from 'lucide-react'
+import { useSession } from "next-auth/react";
+import { Bell, Search } from "lucide-react";
 
 export function AdminHeader() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   return (
     <header className="bg-gray-900 border-b border-gray-800 px-6 py-4">
@@ -33,16 +33,18 @@ export function AdminHeader() {
           <div className="flex items-center space-x-3 space-x-reverse">
             <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
               <span className="text-background font-semibold text-sm">
-                {session?.user?.name?.charAt(0) || 'M'}
+                {session?.user?.name?.charAt(0) || "M"}
               </span>
             </div>
             <div className="text-sm">
-              <p className="text-text font-medium">{session?.user?.name || 'מנהל'}</p>
+              <p className="text-text font-medium">
+                {session?.user?.name || "מנהל"}
+              </p>
               <p className="text-gray-400">מנהל מערכת</p>
             </div>
           </div>
         </div>
       </div>
     </header>
-  )
+  );
 }

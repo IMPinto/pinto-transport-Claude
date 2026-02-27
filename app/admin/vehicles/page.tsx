@@ -1,26 +1,26 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Plus, Search, Car } from 'lucide-react'
-import { VehiclesTable } from '../../../components/admin/VehiclesTable'
-import { VehiclesGrid } from '../../../components/admin/VehiclesGrid'
-import { VehicleModal } from '../../../components/admin/VehicleModal'
+import { useState } from "react";
+import { Plus, Search, Car } from "lucide-react";
+import { VehiclesTable } from "../../../components/admin/VehiclesTable";
+import { VehiclesGrid } from "../../../components/admin/VehiclesGrid";
+import { VehicleModal } from "../../../components/admin/VehicleModal";
 
 export default function VehiclesPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedVehicle, setSelectedVehicle] = useState(null)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid')
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedVehicle, setSelectedVehicle] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
 
   const handleAddVehicle = () => {
-    setSelectedVehicle(null)
-    setIsModalOpen(true)
-  }
+    setSelectedVehicle(null);
+    setIsModalOpen(true);
+  };
 
   const handleEditVehicle = (vehicle: any) => {
-    setSelectedVehicle(vehicle)
-    setIsModalOpen(true)
-  }
+    setSelectedVehicle(vehicle);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="space-y-6">
@@ -62,21 +62,21 @@ export default function VehiclesPage() {
             </select>
             <div className="flex rounded-lg bg-gray-800 p-1">
               <button
-                onClick={() => setViewMode('grid')}
+                onClick={() => setViewMode("grid")}
                 className={`px-3 py-1.5 text-sm rounded ${
-                  viewMode === 'grid'
-                    ? 'bg-primary text-background'
-                    : 'text-gray-400 hover:text-white'
+                  viewMode === "grid"
+                    ? "bg-primary text-background"
+                    : "text-gray-400 hover:text-white"
                 }`}
               >
                 רשת
               </button>
               <button
-                onClick={() => setViewMode('table')}
+                onClick={() => setViewMode("table")}
                 className={`px-3 py-1.5 text-sm rounded ${
-                  viewMode === 'table'
-                    ? 'bg-primary text-background'
-                    : 'text-gray-400 hover:text-white'
+                  viewMode === "table"
+                    ? "bg-primary text-background"
+                    : "text-gray-400 hover:text-white"
                 }`}
               >
                 טבלה
@@ -87,16 +87,10 @@ export default function VehiclesPage() {
       </div>
 
       {/* תוכן הרכבים */}
-      {viewMode === 'grid' ? (
-        <VehiclesGrid 
-          searchTerm={searchTerm}
-          onEdit={handleEditVehicle}
-        />
+      {viewMode === "grid" ? (
+        <VehiclesGrid searchTerm={searchTerm} onEdit={handleEditVehicle} />
       ) : (
-        <VehiclesTable 
-          searchTerm={searchTerm}
-          onEdit={handleEditVehicle}
-        />
+        <VehiclesTable searchTerm={searchTerm} onEdit={handleEditVehicle} />
       )}
 
       {/* מודל הוספה/עריכה */}
@@ -106,5 +100,5 @@ export default function VehiclesPage() {
         vehicle={selectedVehicle}
       />
     </div>
-  )
+  );
 }

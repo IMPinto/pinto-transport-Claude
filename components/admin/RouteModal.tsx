@@ -1,77 +1,77 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { X, MapPin, Calendar, Clock, User, Car } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { X, MapPin, Calendar, Clock, User, Car } from "lucide-react";
 
 // נתונים מדומים של נהגים ורכבים
 const mockDrivers = [
-  { id: 'driver1', name: 'נהג דוגמה' },
-  { id: 'driver2', name: 'משה כהן' },
-  { id: 'driver3', name: 'דני אברהם' }
-]
+  { id: "driver1", name: "נהג דוגמה" },
+  { id: "driver2", name: "משה כהן" },
+  { id: "driver3", name: "דני אברהם" },
+];
 
 const mockVehicles = [
-  { id: 'vehicle1', name: 'מיניבוס פינטו 1', plateNumber: '123-45-678' },
-  { id: 'vehicle2', name: 'אוטובוס פינטו 2', plateNumber: '987-65-432' },
-  { id: 'vehicle3', name: 'מיניבוס פינטו 3', plateNumber: '555-66-777' }
-]
+  { id: "vehicle1", name: "מיניבוס פינטו 1", plateNumber: "123-45-678" },
+  { id: "vehicle2", name: "אוטובוס פינטו 2", plateNumber: "987-65-432" },
+  { id: "vehicle3", name: "מיניבוס פינטו 3", plateNumber: "555-66-777" },
+];
 
 interface RouteModalProps {
-  isOpen: boolean
-  onClose: () => void
-  route?: any
+  isOpen: boolean;
+  onClose: () => void;
+  route?: any;
 }
 
 export function RouteModal({ isOpen, onClose, route }: RouteModalProps) {
   const [formData, setFormData] = useState({
-    description: '',
-    date: '',
-    time: '',
-    driverId: '',
-    vehicleId: ''
-  })
-  const [loading, setLoading] = useState(false)
+    description: "",
+    date: "",
+    time: "",
+    driverId: "",
+    vehicleId: "",
+  });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (route) {
       setFormData({
-        description: route.description || '',
-        date: route.date || '',
-        time: route.time || '',
-        driverId: route.driver?.id || '',
-        vehicleId: route.vehicle?.id || ''
-      })
+        description: route.description || "",
+        date: route.date || "",
+        time: route.time || "",
+        driverId: route.driver?.id || "",
+        vehicleId: route.vehicle?.id || "",
+      });
     } else {
       setFormData({
-        description: '',
-        date: '',
-        time: '',
-        driverId: '',
-        vehicleId: ''
-      })
+        description: "",
+        date: "",
+        time: "",
+        driverId: "",
+        vehicleId: "",
+      });
     }
-  }, [route])
+  }, [route]);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
+    e.preventDefault();
+    setLoading(true);
 
     try {
       // כאן יהיה קוד שמירה למסד הנתונים
-      console.log('Save route:', formData)
-      
-      // סימולציה של שמירה
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      onClose()
-    } catch (error) {
-      console.error('Error saving route:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
+      console.log("Save route:", formData);
 
-  if (!isOpen) return null
+      // סימולציה של שמירה
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      onClose();
+    } catch (error) {
+      console.error("Error saving route:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -79,7 +79,7 @@ export function RouteModal({ isOpen, onClose, route }: RouteModalProps) {
         {/* כותרת */}
         <div className="flex items-center justify-between p-6 border-b border-gray-800">
           <h2 className="text-lg font-semibold text-text">
-            {route ? 'עריכת מסלול' : 'הוספת מסלול חדש'}
+            {route ? "עריכת מסלול" : "הוספת מסלול חדש"}
           </h2>
           <button
             onClick={onClose}
@@ -101,7 +101,9 @@ export function RouteModal({ isOpen, onClose, route }: RouteModalProps) {
               <input
                 type="text"
                 value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
                 className="w-full pl-4 pr-10 py-2.5 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text"
                 placeholder="למשל: תל אביב - ירושלים"
                 required
@@ -120,7 +122,9 @@ export function RouteModal({ isOpen, onClose, route }: RouteModalProps) {
                 <input
                   type="date"
                   value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, date: e.target.value })
+                  }
                   className="w-full pl-4 pr-10 py-2.5 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text"
                   required
                 />
@@ -137,7 +141,9 @@ export function RouteModal({ isOpen, onClose, route }: RouteModalProps) {
                 <input
                   type="time"
                   value={formData.time}
-                  onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, time: e.target.value })
+                  }
                   className="w-full pl-4 pr-10 py-2.5 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text"
                   required
                 />
@@ -154,7 +160,9 @@ export function RouteModal({ isOpen, onClose, route }: RouteModalProps) {
               <User className="absolute right-3 top-3 w-4 h-4 text-gray-400" />
               <select
                 value={formData.driverId}
-                onChange={(e) => setFormData({ ...formData, driverId: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, driverId: e.target.value })
+                }
                 className="w-full pl-4 pr-10 py-2.5 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text"
                 required
               >
@@ -177,7 +185,9 @@ export function RouteModal({ isOpen, onClose, route }: RouteModalProps) {
               <Car className="absolute right-3 top-3 w-4 h-4 text-gray-400" />
               <select
                 value={formData.vehicleId}
-                onChange={(e) => setFormData({ ...formData, vehicleId: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, vehicleId: e.target.value })
+                }
                 className="w-full pl-4 pr-10 py-2.5 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text"
                 required
               >
@@ -217,11 +227,11 @@ export function RouteModal({ isOpen, onClose, route }: RouteModalProps) {
               disabled={loading}
               className="flex-1 py-2.5 px-4 bg-primary hover:bg-primary-light text-background font-semibold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'שומר...' : route ? 'עדכן מסלול' : 'צור מסלול'}
+              {loading ? "שומר..." : route ? "עדכן מסלול" : "צור מסלול"}
             </button>
           </div>
         </form>
       </div>
     </div>
-  )
+  );
 }

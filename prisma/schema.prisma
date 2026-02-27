@@ -32,7 +32,7 @@ model Route {
   time        String
   driverId    String
   vehicleId   String
-  driver      User     @relation(fields: [driverId], references: [id], name: "DriverRoutes")
+  driver      User     @relation(fields: [driverId], references: [id],  "DriverRoutes")
   vehicle     Vehicle  @relation(fields: [vehicleId], references: [id])
   description String?
   createdAt   DateTime @default(now())
@@ -46,4 +46,4 @@ enum Role {
 enum VehicleType {
   MINIBUS
   BUS
-}
+}name:
