@@ -46,4 +46,4 @@ enum Role {
 enum VehicleType {
   MINIBUS
   BUS
-}name:
+}
