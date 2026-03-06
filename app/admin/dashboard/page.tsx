@@ -1,6 +1,6 @@
-import { StatsCard } from '../../../components/admin/StatsCard'
-import { RecentRoutes } from '../../../components/admin/RecentRoutes'
-import { Car, Users, Router, Calendar } from 'lucide-react'
+import { StatsCard } from "../../../components/admin/StatsCard";
+import { RecentRoutes } from "../../../components/admin/RecentRoutes";
+import { Car, Users, Router, Calendar } from "lucide-react";
 
 export default function AdminDashboard() {
   return (
@@ -50,7 +50,9 @@ export default function AdminDashboard() {
 
         {/* גרף או מידע נוסף */}
         <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-          <h3 className="text-lg font-semibold text-text mb-4">פעילות שבועית</h3>
+          <h3 className="text-lg font-semibold text-text mb-4">
+            פעילות שבועית
+          </h3>
           <div className="h-48 flex items-center justify-center text-gray-400">
             <div className="text-center">
               <Calendar className="w-12 h-12 mx-auto mb-2 opacity-50" />
@@ -79,5 +81,5 @@ export default function AdminDashboard() {
         </div>
       </div>
     </div>
-  )
+  );
 }

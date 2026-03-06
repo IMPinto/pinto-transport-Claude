@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import { useSession } from 'next-auth/react'
-import { Calendar, Clock, Car, MapPin, CheckCircle } from 'lucide-react'
-import { MyRoutes } from '../../../components/driver/MyRoutes'
-import { TodaySchedule } from '../../../components/driver/TodaySchedule'
+import { useSession } from "next-auth/react";
+import { Calendar, Clock, Car, MapPin, CheckCircle } from "lucide-react";
+import { MyRoutes } from "../../../components/driver/MyRoutes";
+import { TodaySchedule } from "../../../components/driver/TodaySchedule";
 
 export default function DriverDashboard() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   return (
     <div className="max-w-6xl mx-auto space-y-6">
@@ -15,10 +15,11 @@ export default function DriverDashboard() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-text">
-              שלום {session?.user?.name || 'נהג'}!
+              שלום {session?.user?.name || "נהג"}!
             </h1>
             <p className="text-gray-400 mt-1">
-              ברוך הבא ללוח הבקרה שלך - כאן תוכל לראות את כל המסלולים המיועדים לך
+              ברוך הבא ללוח הבקרה שלך - כאן תוכל לראות את כל המסלולים המיועדים
+              לך
             </p>
           </div>
           <div className="w-16 h-16 bg-primary/30 rounded-full flex items-center justify-center">
@@ -38,7 +39,7 @@ export default function DriverDashboard() {
             <Calendar className="w-8 h-8 text-primary" />
           </div>
         </div>
-        
+
         <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
           <div className="flex items-center justify-between">
             <div>
@@ -48,7 +49,7 @@ export default function DriverDashboard() {
             <CheckCircle className="w-8 h-8 text-green-400" />
           </div>
         </div>
-        
+
         <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
           <div className="flex items-center justify-between">
             <div>
@@ -58,7 +59,7 @@ export default function DriverDashboard() {
             <Clock className="w-8 h-8 text-yellow-400" />
           </div>
         </div>
-        
+
         <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
           <div className="flex items-center justify-between">
             <div>
@@ -76,7 +77,7 @@ export default function DriverDashboard() {
         <div className="lg:col-span-2">
           <TodaySchedule />
         </div>
-        
+
         {/* המסלולים שלי */}
         <div>
           <MyRoutes />
@@ -85,7 +86,9 @@ export default function DriverDashboard() {
 
       {/* הודעות והתראות */}
       <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-        <h3 className="text-lg font-semibold text-text mb-4">הודעות ועדכונים</h3>
+        <h3 className="text-lg font-semibold text-text mb-4">
+          הודעות ועדכונים
+        </h3>
         <div className="space-y-3">
           <div className="flex items-start p-3 bg-blue-900/20 border border-blue-800 rounded-lg">
             <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 ml-3 flex-shrink-0"></div>
@@ -96,7 +99,7 @@ export default function DriverDashboard() {
               </p>
             </div>
           </div>
-          
+
           <div className="flex items-start p-3 bg-green-900/20 border border-green-800 rounded-lg">
             <div className="w-2 h-2 bg-green-400 rounded-full mt-2 ml-3 flex-shrink-0"></div>
             <div>
@@ -109,5 +112,5 @@ export default function DriverDashboard() {
         </div>
       </div>
     </div>
-  )
+  );
 }

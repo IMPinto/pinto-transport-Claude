@@ -1,26 +1,26 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Plus, Search, Calendar, Clock, Filter } from 'lucide-react'
-import { RoutesTable } from '../../../components/admin/RoutesTable'
-import { RouteModal } from '../../../components/admin/RouteModal'
+import { useState } from "react";
+import { Plus, Search, Calendar, Clock, Filter } from "lucide-react";
+import { RoutesTable } from "../../../components/admin/RoutesTable";
+import { RouteModal } from "../../../components/admin/RouteModal";
 
 export default function RoutesPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedRoute, setSelectedRoute] = useState(null)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [dateFilter, setDateFilter] = useState('')
-  const [statusFilter, setStatusFilter] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRoute, setSelectedRoute] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [dateFilter, setDateFilter] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
 
   const handleAddRoute = () => {
-    setSelectedRoute(null)
-    setIsModalOpen(true)
-  }
+    setSelectedRoute(null);
+    setIsModalOpen(true);
+  };
 
   const handleEditRoute = (route: any) => {
-    setSelectedRoute(route)
-    setIsModalOpen(true)
-  }
+    setSelectedRoute(route);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="space-y-6">
@@ -50,7 +50,7 @@ export default function RoutesPage() {
             <Calendar className="w-8 h-8 text-primary" />
           </div>
         </div>
-        
+
         <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
           <div className="flex items-center justify-between">
             <div>
@@ -62,7 +62,7 @@ export default function RoutesPage() {
             </div>
           </div>
         </div>
-        
+
         <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
           <div className="flex items-center justify-between">
             <div>
@@ -72,7 +72,7 @@ export default function RoutesPage() {
             <Clock className="w-8 h-8 text-blue-400" />
           </div>
         </div>
-        
+
         <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
           <div className="flex items-center justify-between">
             <div>
@@ -153,7 +153,7 @@ export default function RoutesPage() {
       </div>
 
       {/* טבלת מסלולים */}
-      <RoutesTable 
+      <RoutesTable
         searchTerm={searchTerm}
         dateFilter={dateFilter}
         statusFilter={statusFilter}
@@ -167,5 +167,5 @@ export default function RoutesPage() {
         route={selectedRoute}
       />
     </div>
-  )
+  );
 }

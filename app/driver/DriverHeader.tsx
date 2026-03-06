@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import { useSession, signOut } from 'next-auth/react'
-import { Bus, Bell, LogOut, User } from 'lucide-react'
+import { useSession, signOut } from "next-auth/react";
+import { Bus, Bell, LogOut, User } from "lucide-react";
 
 export function DriverHeader() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   return (
     <header className="bg-gray-900 border-b border-gray-800 px-6 py-4">
@@ -34,14 +34,16 @@ export function DriverHeader() {
               <User className="w-4 h-4 text-background" />
             </div>
             <div className="text-sm">
-              <p className="text-text font-medium">{session?.user?.name || 'נהג'}</p>
+              <p className="text-text font-medium">
+                {session?.user?.name || "נהג"}
+              </p>
               <p className="text-gray-400">נהג פעיל</p>
             </div>
           </div>
 
           {/* כפתור יציאה */}
           <button
-            onClick={() => signOut({ callbackUrl: '/login' })}
+            onClick={() => signOut({ callbackUrl: "/login" })}
             className="flex items-center px-3 py-2 text-sm text-red-400 hover:text-red-300 hover:bg-red-900/20 rounded-lg transition-colors"
             title="יציאה"
           >
@@ -51,5 +53,5 @@ export function DriverHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }

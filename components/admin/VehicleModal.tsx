@@ -1,58 +1,58 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { X, Car, Hash, Tag } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { X, Car, Hash, Tag } from "lucide-react";
 
 interface VehicleModalProps {
-  isOpen: boolean
-  onClose: () => void
-  vehicle?: any
+  isOpen: boolean;
+  onClose: () => void;
+  vehicle?: any;
 }
 
 export function VehicleModal({ isOpen, onClose, vehicle }: VehicleModalProps) {
   const [formData, setFormData] = useState({
-    name: '',
-    type: 'MINIBUS',
-    plateNumber: ''
-  })
-  const [loading, setLoading] = useState(false)
+    name: "",
+    type: "MINIBUS",
+    plateNumber: "",
+  });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (vehicle) {
       setFormData({
-        name: vehicle.name || '',
-        type: vehicle.type || 'MINIBUS',
-        plateNumber: vehicle.plateNumber || ''
-      })
+        name: vehicle.name || "",
+        type: vehicle.type || "MINIBUS",
+        plateNumber: vehicle.plateNumber || "",
+      });
     } else {
       setFormData({
-        name: '',
-        type: 'MINIBUS',
-        plateNumber: ''
-      })
+        name: "",
+        type: "MINIBUS",
+        plateNumber: "",
+      });
     }
-  }, [vehicle])
+  }, [vehicle]);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
+    e.preventDefault();
+    setLoading(true);
 
     try {
       // כאן יהיה קוד שמירה למסד הנתונים
-      console.log('Save vehicle:', formData)
-      
-      // סימולציה של שמירה
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      onClose()
-    } catch (error) {
-      console.error('Error saving vehicle:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
+      console.log("Save vehicle:", formData);
 
-  if (!isOpen) return null
+      // סימולציה של שמירה
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      onClose();
+    } catch (error) {
+      console.error("Error saving vehicle:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -60,7 +60,7 @@ export function VehicleModal({ isOpen, onClose, vehicle }: VehicleModalProps) {
         {/* כותרת */}
         <div className="flex items-center justify-between p-6 border-b border-gray-800">
           <h2 className="text-lg font-semibold text-text">
-            {vehicle ? 'עריכת רכב' : 'הוספת רכב חדש'}
+            {vehicle ? "עריכת רכב" : "הוספת רכב חדש"}
           </h2>
           <button
             onClick={onClose}
@@ -82,7 +82,9 @@ export function VehicleModal({ isOpen, onClose, vehicle }: VehicleModalProps) {
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 className="w-full pl-4 pr-10 py-2.5 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text"
                 placeholder="למשל: מיניבוס פינטו 1"
                 required
@@ -99,7 +101,9 @@ export function VehicleModal({ isOpen, onClose, vehicle }: VehicleModalProps) {
               <Car className="absolute right-3 top-3 w-4 h-4 text-gray-400" />
               <select
                 value={formData.type}
-                onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, type: e.target.value })
+                }
                 className="w-full pl-4 pr-10 py-2.5 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text"
               >
                 <option value="MINIBUS">מיניבוס</option>
@@ -118,7 +122,9 @@ export function VehicleModal({ isOpen, onClose, vehicle }: VehicleModalProps) {
               <input
                 type="text"
                 value={formData.plateNumber}
-                onChange={(e) => setFormData({ ...formData, plateNumber: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, plateNumber: e.target.value })
+                }
                 className="w-full pl-4 pr-10 py-2.5 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text"
                 placeholder="123-45-678"
                 required
@@ -143,11 +149,11 @@ export function VehicleModal({ isOpen, onClose, vehicle }: VehicleModalProps) {
               disabled={loading}
               className="flex-1 py-2.5 px-4 bg-primary hover:bg-primary-light text-background font-semibold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'שומר...' : vehicle ? 'עדכן' : 'הוסף'}
+              {loading ? "שומר..." : vehicle ? "עדכן" : "הוסף"}
             </button>
           </div>
         </form>
       </div>
     </div>
-  )
+  );
 }
