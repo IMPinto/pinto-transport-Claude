@@ -13,9 +13,9 @@ export function AdminHeader() {
         <div className="flex-1 max-w-md">
           <div className="relative">
             <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-            <input
-              type="text"
-              placeholder="חיפוש..."
+               <input
+                 type="text"
+                placeholder="חיפוש..."
               className="w-full pl-4 pr-10 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text text-sm"
             />
           </div>
