@@ -16,7 +16,7 @@ export function AdminHeader() {
             <input
               type="text"
               placeholder="חיפוש..."
-               className="w-full pl-4 pr-10 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text text-sm"
+              className="w-full pl-4 pr-10 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text text-sm"
             />
           </div>
         </div>
