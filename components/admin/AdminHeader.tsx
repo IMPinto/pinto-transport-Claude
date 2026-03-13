@@ -8,21 +8,9 @@ export function AdminHeader() {
 
   return (
     <header className="bg-gray-900 border-b border-gray-800 px-6 py-4">
-      <div className="flex items-center justify-between">
-        {/* חיפוש */}
-        <div className="flex-1 max-w-md">
-          <div className="relative">
-            <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-            <input
-              type="text"
-              placeholder="חיפוש..."
-              className="w-full pl-4 pr-10 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-text text-sm"
-            />
-          </div>
-        </div>
-
+      <div className="flex items-center justify-end">
         {/* פרטי משתמש */}
-        <div className="flex items-center space-x-4 space-x-reverse">
+        <div className="flex items-center space-x-4 space-x-reverse ">
           {/* התראות */}
           <button className="relative p-2 text-gray-400 hover:text-white transition-colors">
             <Bell className="w-5 h-5" />

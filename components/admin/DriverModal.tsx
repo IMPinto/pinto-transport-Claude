@@ -41,11 +41,13 @@ export function DriverModal({ isOpen, onClose, driver }: DriverModalProps) {
     setLoading(true);
 
     try {
-      // כאן יהיה קוד שמירה למסד הנתונים
-      console.log("Save driver:", formData);
-
-      // סימולציה של שמירה
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const data = await fetch("/api/user", {
+        method: driver ? "PUT" : "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       onClose();
     } catch (error) {
