@@ -1,24 +1,24 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Plus, Search, Edit, Trash2, User } from 'lucide-react'
-import { DriversTable } from '../../../components/admin/DriversTable'
-import { DriverModal } from '../../../components/admin/DriverModal'
+import { useState } from "react";
+import { Plus, Search, Edit, Trash2, User } from "lucide-react";
+import { DriversTable } from "../../../components/admin/DriversTable";
+import { DriverModal } from "../../../components/admin/DriverModal";
 
 export default function DriversPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedDriver, setSelectedDriver] = useState(null)
-  const [searchTerm, setSearchTerm] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedDriver, setSelectedDriver] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleAddDriver = () => {
-    setSelectedDriver(null)
-    setIsModalOpen(true)
-  }
+    setSelectedDriver(null);
+    setIsModalOpen(true);
+  };
 
   const handleEditDriver = (driver: any) => {
-    setSelectedDriver(driver)
-    setIsModalOpen(true)
-  }
+    setSelectedDriver(driver);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="space-y-6">
@@ -61,10 +61,7 @@ export default function DriversPage() {
       </div>
 
       {/* טבלת נהגים */}
-      <DriversTable 
-        searchTerm={searchTerm}
-        onEdit={handleEditDriver}
-      />
+      <DriversTable searchTerm={searchTerm} onEdit={handleEditDriver} />
 
       {/* מודל הוספה/עריכה */}
       <DriverModal
@@ -73,5 +70,5 @@ export default function DriversPage() {
         driver={selectedDriver}
       />
     </div>
-  )
+  );
 }

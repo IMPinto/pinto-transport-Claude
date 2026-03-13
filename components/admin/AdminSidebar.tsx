@@ -1,42 +1,35 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { signOut } from 'next-auth/react'
-import { 
-  LayoutDashboard, 
-  Users, 
-  Car, 
-  Router, 
-  LogOut, 
-  Bus 
-} from 'lucide-react'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
+import { LayoutDashboard, Users, Car, Router, LogOut, Bus } from "lucide-react";
 
 const menuItems = [
   {
-    name: 'לוח בקרה',
-    href: '/admin/dashboard',
+    name: "לוח בקרה",
+    href: "/admin/dashboard",
     icon: LayoutDashboard,
   },
   {
-    name: 'נהגים',
-    href: '/admin/drivers',
+    name: "נהגים",
+    href: "/admin/drivers",
     icon: Users,
   },
   {
-    name: 'רכבים',
-    href: '/admin/vehicles',
+    name: "רכבים",
+    href: "/admin/vehicles",
     icon: Car,
   },
   {
-    name: 'מסלולים',
-    href: '/admin/routes',
+    name: "מסלולים",
+    href: "/admin/routes",
     icon: Router,
   },
-]
+];
 
 export function AdminSidebar() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <div className="fixed inset-y-0 right-0 z-50 w-64 bg-gray-900 border-l border-gray-800 lg:translate-x-0">
@@ -54,30 +47,30 @@ export function AdminSidebar() {
         {/* תפריט */}
         <nav className="flex-1 px-4 py-6 space-y-2">
           {menuItems.map((item) => {
-            const isActive = pathname === item.href
-            const Icon = item.icon
-            
+            const isActive = pathname === item.href;
+            const Icon = item.icon;
+
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
                   isActive
-                    ? 'bg-primary text-background'
-                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                    ? "bg-primary text-background"
+                    : "text-gray-300 hover:bg-gray-800 hover:text-white"
                 }`}
               >
                 <Icon className="w-5 h-5 ml-3" />
                 {item.name}
               </Link>
-            )
+            );
           })}
         </nav>
 
         {/* כפתור יציאה */}
         <div className="p-4 border-t border-gray-700">
           <button
-            onClick={() => signOut({ callbackUrl: '/login' })}
+            onClick={() => signOut({ callbackUrl: "/login" })}
             className="flex items-center w-full px-4 py-3 text-sm font-medium text-gray-300 rounded-lg hover:bg-gray-800 hover:text-white transition-colors"
           >
             <LogOut className="w-5 h-5 ml-3" />
@@ -86,5 +79,5 @@ export function AdminSidebar() {
         </div>
       </div>
     </div>
-  )
+  );
 }

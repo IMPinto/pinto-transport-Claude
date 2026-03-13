@@ -12,7 +12,8 @@ npm run dev
 ```
 
 ## משתמשים לדוגמה
-- מנהל: admin@pinto.com / admin123  
+
+- מנהל: admin@pinto.com / admin123
 - נהג: driver@pinto.com / driver123
 
 גש ל: http://localhost:3000

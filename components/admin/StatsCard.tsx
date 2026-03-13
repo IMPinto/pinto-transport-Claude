@@ -1,19 +1,25 @@
-import { LucideIcon } from 'lucide-react'
+import { LucideIcon } from "lucide-react";
 
 interface StatsCardProps {
-  title: string
-  value: string
-  change: string
-  changeType: 'positive' | 'negative' | 'neutral'
-  icon: LucideIcon
+  title: string;
+  value: string;
+  change: string;
+  changeType: "positive" | "negative" | "neutral";
+  icon: LucideIcon;
 }
 
-export function StatsCard({ title, value, change, changeType, icon: Icon }: StatsCardProps) {
+export function StatsCard({
+  title,
+  value,
+  change,
+  changeType,
+  icon: Icon,
+}: StatsCardProps) {
   const changeColor = {
-    positive: 'text-green-400',
-    negative: 'text-red-400',
-    neutral: 'text-gray-400'
-  }[changeType]
+    positive: "text-green-400",
+    negative: "text-red-400",
+    neutral: "text-gray-400",
+  }[changeType];
 
   return (
     <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
@@ -30,5 +36,5 @@ export function StatsCard({ title, value, change, changeType, icon: Icon }: Stat
         <p className={`text-xs ${changeColor}`}>{change}</p>
       </div>
     </div>
-  )
+  );
 }
